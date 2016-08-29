@@ -207,7 +207,10 @@
 				</ul>
 			</div>
 		</section>
-		<section class="cart">
+
+		<button id="display_cart" class="btn" onclick="visibleCart()" >Display cart</button>
+
+		<section class="cart" id="cart_section">
 			<div class="container">
 				<h1>Shopping Cart</h1>
 				<div class="cart-details">
@@ -277,7 +280,7 @@
 					<div class="cart-order">
 						<div class="cart-coupon">
 							<h3>I have a coupon</h3>
-							<input type="text" placeholder="coupon"></input>
+							<input type="text" placeholder="coupon">
 						<button title="Add coupon to reduce on total amount">
 							<i class="ti-plus"></i>
 							Add Coupon
@@ -318,16 +321,12 @@
 			</div>
 		</div>
 	</section>
-</div>
 </main>
 <div id="footer-wrap">
 <footer>
 	<p>Copyright &copy; 2016</p>
 </footer>
-
-	<script type="text/javascript">
-	
-	</script>
 </div>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
