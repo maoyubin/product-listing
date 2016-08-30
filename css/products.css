@@ -99,13 +99,34 @@ img {
 	text-decoration: none;
 	background-color: #43A047;
 	color: white;
+	cursor: pointer;
 	opacity: 0.8;
-	transition: 0.2s;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	
+	-webkit-box-shadow: 0px 3px 0px #84261a;
+    -moz-box-shadow: 0px 3px 0px #84261a;
+    box-shadow: 0px 3px 0px #84261a;
 }
 .product-details .add-to-cart:hover {
 	opacity: 1;
 	transition: 0.2s
 }
+
+.product-details .add-to-cart:active{
+    position: absolute;
+	display: inline-block;
+	top: -2.4em;
+	right: 0;
+	padding: 0.5em 1em;
+	
+	-webkit-box-shadow: 0px 1px 0px #84261a;
+    -moz-box-shadow: 0px 1px 0px #84261a;
+    box-shadow: 0px 1px 0px #84261a;
+}
+
+
 .product-details .price {
 	color: #43A047;
 	font-size: 1.25em;

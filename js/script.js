@@ -1,7 +1,18 @@
 (function (window){
+	var cart = {
+	    promoCode: "BIGSALE",
+	    cartItems: [],
+	    numberOfItems: function() {
+	        return this.cartItems.length;
+	    },
+	    cartTotal: 0,
+	    cartList: []
+	};
+	
 	
 	var displayCart = document.getElementById('display_cart');
 	var cartSection = document.getElementById('cart_section');
+	var addButtons = document.getElementsByClassName("add-to-cart");
 	var productList = [];
 	
 
@@ -31,7 +42,13 @@
 		product.desc = lastNode.innerHTML;
 		product.price = mon;
 		productList.push(product);
-		console.log(product);
 	}
+	
+	for(i = 0; i < addButtons.length; i++) {
+    addButtons[i].addEventListener("click", function(event) {
+        var productID = this.parentNode.getAttribute("id");
+        console.log(productID);
+    });
+}
 	
 })(window)
