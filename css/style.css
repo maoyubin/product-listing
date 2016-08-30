@@ -142,15 +142,14 @@ ul {
 .share-box{
 	cursor: pointer;
 	position:fixed;
-	width:100px;
+	width:130px;
 	top:50%;
-	left:3%;
+	left:1%;
 	border:3px solid #a1a1a1;
 	background:rgb(242, 247, 252);
-	padding:15px;
+	padding:10px;
 	-webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
+    border-radius: 3px;
 }
 
 
