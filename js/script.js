@@ -1,10 +1,18 @@
 (function (window){
 	var cart = {
 	    promoCode: "BIGSALE",
-	    cartItems: [],
+	    cartItems: {},
 	    numberOfItems: function() {
-	        return this.cartItems.length;
+	    	var num = 0;
+	    	for (var key in this.cartItems) {
+				    if (!this.cartItems.hasOwnProperty(key)) 
+				    	continue;
+				    var itemArray = this.cartItems[key];
+				    num += itemArray.length;
+			}
+	        return num;
 	    },
+	    totalAmount: 0,
 	    cartTotal: 0,
 	    cartList: []
 	};
@@ -27,6 +35,16 @@
 			cartSection.scrollIntoView();
 		}
 	}
+	
+	function getProductByID(id){
+		for(var i=0;i<productList.length;i++){
+			var temp = productList[i];
+			if(id === temp.id){
+				return temp;
+			}
+		}
+	}
+	
 	window.visibleCart = visibleCart;
 	
 	var products = document.getElementsByClassName("product-details");
@@ -45,10 +63,28 @@
 	}
 	
 	for(i = 0; i < addButtons.length; i++) {
-    addButtons[i].addEventListener("click", function(event) {
-        var productID = this.parentNode.getAttribute("id");
-        console.log(productID);
-    });
-}
+	    addButtons[i].addEventListener("click", function(event) {
+	        var productID = this.parentNode.getAttribute("id");
+	        var product = getProductByID(productID);
+		    if(product!=undefined && cart.cartItems[productID]!=undefined){
+		    	for (var key in cart.cartItems) {
+				    // skip loop if the property is from prototype
+				    if (!cart.cartItems.hasOwnProperty(key)) 
+				    	continue;
+				    var itemArray = cart.cartItems[key];
+				    if(productID == key){
+				    	itemArray.push(product);
+				    	break;
+					}
+				}
+		   }else{
+		   	   var newArray = [];
+		   	   newArray.push(product);
+		   	   cart.cartItems[productID] = newArray;
+		   }
+		   
+		   document.getElementById('share_box_number').innerHTML = cart.numberOfItems();
+	    });
+	}
 	
 })(window)
