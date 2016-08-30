@@ -6,14 +6,15 @@
 	function visibleCart(){
 		let displayStyle = cartSection.style.display;
 
-		console.log(displayStyle);
-		console.log(displayStyle === 'none');
 		if(displayStyle != 'none'){
 			cartSection.style.display = 'none';
 		}else{
 			cartSection.style.display = 'block';
+			cartSection.focus();
+			cartSection.scrollIntoView();
+			//window.location.hash='#!cart_section';
+			//console.log(window.location.hash);
 		}
-		
 	}
 	window.visibleCart = visibleCart;
 

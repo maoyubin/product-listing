@@ -82,6 +82,7 @@ img {
 }
 .product-details {
 	position: relative;
+	margin: 0;
 }
 .product-details h3 {
 	font-size: 1.2em;
@@ -115,7 +116,7 @@ img {
 	text-decoration: line-through;
 }
 .product-details p {
-	margin-top: 0.5em;
+	margin-top: 0.3em;
 }
 .cart {
 	padding: 4% 0;
@@ -183,7 +184,7 @@ img {
 	display: block;
 	padding-bottom: 0.625em;
 }
-.cart-products .qty {
+.cart-products .qty,.share-box .qty {
 	display: inline-block;
 	border-radius: 50%;
 	padding: 5px 10px;
