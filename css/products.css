@@ -1,8 +1,4 @@
-table {
-	width: 100%;
-	max-width: 100%;
-	border-collapse: collapse;
-}
+
 
 .button {
     background-color: #4CAF50;
@@ -156,13 +152,7 @@ button {
 	display: block;
 	clear: both;
 }
-.cart table {
-	padding: 1%;
-	text-align: left;
-}
-.cart table thead {
-	
-}
+
 .cart table > thead > tr > th {
 	padding: 1em 1.6em;
 	vertical-align: middle;
@@ -173,6 +163,11 @@ button {
 	font-size: 0.75em;
 	padding: 1em 2em;
 }
+.cart-details {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .cart-details {
 	display: flex;
 	flex-wrap: wrap;
@@ -196,10 +191,6 @@ button {
 	width:70%;
 	padding: 1.5%;
 	margin-bottom: 0.9375em;
-	overflow-y:hidden;
-	overflow-x:scroll;
-	-ms-overflow-style:-ms-autohiding-scrollbar;
-	-webkit-overflow-scrolling:touch
 }
 .cart-products > span {
 	display: block;
@@ -230,12 +221,6 @@ button {
 	font-size: 0.8em;
 }
 
-
-
-.cart-products table > tbody > tr > td:nth-child(3){
-	text-align: left;
-}
-
 .cart-products table > tbody > tr > td:nth-child(1){
 	width: 15%;
 }
@@ -246,6 +231,7 @@ button {
 
 .cart-products table > tbody > tr > td:nth-child(3){
 	width: 40%;
+	text-align: left;
 }
 
 .cart-products table > tbody > tr > td:nth-child(4){

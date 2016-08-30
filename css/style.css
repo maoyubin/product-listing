@@ -46,6 +46,23 @@ a {
 ul {
 	list-style: none;
 }
+
+table {
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+}
+
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    background: transparent;
+}
+
+
 .menu {
 	background: rgba(2, 117, 216,0.7);
 	border-top: 5px solid rgb(2, 117, 216);
