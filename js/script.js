@@ -7,8 +7,8 @@
 	    	for (var key in this.cartItems) {
 				    if (!this.cartItems.hasOwnProperty(key)) 
 				    	continue;
-				    var itemArray = this.cartItems[key];
-				    num += itemArray.length;
+				    var length = this.cartItems[key];
+				    num += length;
 			}
 	        return num;
 	    },
@@ -44,8 +44,11 @@
 			}
 		}
 	}
-	
 	window.visibleCart = visibleCart;
+	
+	function changeProductNumber(id, number){
+		
+	}
 	
 	var products = document.getElementsByClassName("product-details");
 	for(var i=0;i<products.length;i++){
@@ -65,22 +68,18 @@
 	for(i = 0; i < addButtons.length; i++) {
 	    addButtons[i].addEventListener("click", function(event) {
 	        var productID = this.parentNode.getAttribute("id");
-	        var product = getProductByID(productID);
 		    if(product!=undefined && cart.cartItems[productID]!=undefined){
 		    	for (var key in cart.cartItems) {
 				    // skip loop if the property is from prototype
 				    if (!cart.cartItems.hasOwnProperty(key)) 
 				    	continue;
-				    var itemArray = cart.cartItems[key];
 				    if(productID == key){
-				    	itemArray.push(product);
+				    	cart.cartItems[productID] +=1;
 				    	break;
 					}
 				}
 		   }else{
-		   	   var newArray = [];
-		   	   newArray.push(product);
-		   	   cart.cartItems[productID] = newArray;
+		   	   cart.cartItems[productID] = 1;
 		   }
 		   
 		   document.getElementById('share_box_number').innerHTML = cart.numberOfItems();
