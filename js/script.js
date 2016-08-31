@@ -8,7 +8,7 @@
 				    if (!this.cartItems.hasOwnProperty(key)) 
 				    	continue;
 				    var length = this.cartItems[key];
-				    num += length;
+				    num += Number(length);
 			}
 	        return num;
 	    },
@@ -45,6 +45,11 @@
 			}
 		}
 	}
+	
+	function updateUI(){
+		document.getElementById('share_box_number').innerHTML = cart.numberOfItems();
+		document.getElementById('share_box_number2').innerHTML = cart.numberOfItems();
+	}
 
 	function getProductNumberByID(id){
 		for(var key in cart.cartItems){
@@ -61,20 +66,31 @@
 	function changeProductNumber(id, number){
 		
 	}
+	
+	function isExistCart(objID){
+		var iList = document.querySelectorAll('td i');
+		for(var i=0;i<iList.length;i++){
+			var id = iList[i].getAttribute("id");
+			if(objID == id){
+				return true;	
+			}
+		}
+		return false;
+	}
 
 	function insertTable(obj){
-		var row = table.insertRow(1);
-
+		var tbody = table.getElementsByTagName('tbody');
+    	var row = tbody[0].insertRow(0);
 		var cell0=row.insertCell(0);
 		var cell1=row.insertCell(1);
 		var cell2=row.insertCell(2);
 		var cell3=row.insertCell(3);
 		var cell4=row.insertCell(4);
 
-		cell0.innerHTML = '<button class="close" title="Remove from shopping cart"><i class="fa fa-trash" aria-hidden="true"></i></button>';
+		cell0.innerHTML = '<button class="close" title="Remove from shopping cart"><i id='+ obj.id +' class="fa fa-trash" aria-hidden="true"></i></button>';
 		cell1.innerHTML = '<img src="http://placehold.it/50x50">';
 		cell2.innerHTML = obj.desc;
-		cell3.innerHTML = '<input type="number" value="'+getProductNumberByID(obj.id)+'">';
+		cell3.innerHTML = '<input type="number" min="1" max="5" objId='+obj.id+' value="'+getProductNumberByID(obj.id)+'">';
 		cell4.innerHTML = '$'+obj.price;
 	}
 	
@@ -96,6 +112,11 @@
 	for(i = 0; i < addButtons.length; i++) {
 	    addButtons[i].addEventListener("click", function(event) {
 	        var productID = this.parentNode.getAttribute("id");
+			//check if this product exist in cart 
+			if(isExistCart(productID)){
+				return;
+			}
+			
 		    if(product!=undefined && cart.cartItems[productID]!=undefined){
 		    	for (var key in cart.cartItems) {
 				    // skip loop if the property is from prototype
@@ -109,10 +130,9 @@
 		   }else{
 		   	   cart.cartItems[productID] = 1;
 		   }
-		   
-		   document.getElementById('share_box_number').innerHTML = cart.numberOfItems();
-
-		   insertTable(getProductByID(productID));
+		   //add product in cart 
+	       insertTable(getProductByID(productID));
+	       updateUI();
 	    });
 	}
 
@@ -121,6 +141,19 @@
 		    var i = event.target;
 		    var rowIndex = i.parentNode.parentNode.parentNode.rowIndex;
 		    table.deleteRow(rowIndex);
+		}else if (event.target.nodeName == 'INPUT') {
+		    var inputNode = event.target;
+		    //console.log(inputNode.value);
+		}
+	};
+	
+	table.onkeyup = function(event) {
+		if (event.target.nodeName == 'INPUT') {
+		    var inputNode = event.target;
+		    var id = inputNode.getAttribute("objId");
+		    cart.cartItems[id]=inputNode.value;
+		    
+		    updateUI();
 		}
 	};
 	
