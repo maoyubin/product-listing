@@ -73,10 +73,6 @@
 
 	window.visibleCart = visibleCart;
 	
-	function changeProductNumber(id, number){
-		
-	}
-	
 	function isExistCart(objID){
 		var iList = document.querySelectorAll('td i');
 		for(var i=0;i<iList.length;i++){
@@ -167,6 +163,19 @@
 		    console.log(priceTd);
 		    priceTd.innerHTML='$'+(Number(inputNode.value) * parseFloat(pro.price));
 		    updateUI();
+		}
+	};
+
+	var couponId = document.getElementById('coupon_id');
+	var couponCode = document.getElementById('coupon_code');
+	var finalTotal = document.getElementById('final_total');
+	var discountTotal = document.getElementById('discount_total');
+
+	couponId.onclick = function(event) {
+		if(couponCode.value === cart.promoCode){
+			var discount = cart.cartTotal()*0.3;
+			discountTotal.innerHTML = discount.toFixed(2);
+			document.getElementById('final_total').innerHTML = cart.cartTotal()-discount.toFixed(2);
 		}
 	};
 	

@@ -39,7 +39,9 @@
 									Add to Cart
 								</a>
 								<span class="price">$9.99</span>
-								<p>Skin Protection dust and rays,Neo Claire helps and act as skin shield against all harmful particles.</p>
+								<p>
+									Skin Protection dust and rays,Neo Claire helps and act as skin shield against all harmful particles.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -53,7 +55,9 @@
 									Add to Cart
 								</a>
 								<span class="price">$14.99</span>
-								<p>GLY bella brings you an exquisite range of skin care products which can leave you with a healthy glow.</p>
+								<p>
+									GLY bella brings you an exquisite range of skin care products which can leave you with a healthy glow.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -69,7 +73,9 @@
 								</a>
 								<span class="old-price">$27.49</span>
 								<span class="price">$34.99</span>
-								<p>The Pure Encate Age Defying Hand Cream is formulated with Co-enzyme Q10 to visibly decrease  wrinkles.</p>
+								<p>
+									The Pure Encate Age Defying Hand Cream is formulated with Co-enzyme Q10 to visibly decrease  wrinkles.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -99,7 +105,9 @@
 								</a>
 								<span class="old-price">$38.99</span>
 								<span class="price">$29.56</span>
-								<p>The Liberty chair is an intelligent mesh task chair engineered to provide automatic lumbar support for every user.</p>
+								<p>
+									The Liberty chair is an intelligent mesh task chair engineered to provide automatic lumbar support for every user.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -115,7 +123,9 @@
 								</a>
 								<span class="old-price">$78.00</span>
 								<span class="price">$56.99</span>
-								<p>The sense of smell is powerfully connected to memory and emotion.</p>
+								<p>
+									The sense of smell is powerfully connected to memory and emotion.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -129,7 +139,9 @@
 									Add to Cart
 								</a>
 								<span class="price">$12.99</span>
-								<p>ONEHOPE is a red color with loads of juicy fruit flavors,with hints of pepper and a spicy finish.</p>
+								<p>
+									ONEHOPE is a red color with loads of juicy fruit flavors,with hints of pepper and a spicy finish.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -157,7 +169,9 @@
 									Add to Cart
 								</a>
 								<span class="price">$44.99</span>
-								<p>This rare Chinese tea is carefully picked by specially trained monkeys in a remote mountain region of China.</p>
+								<p>
+									This rare Chinese tea is carefully picked by specially trained monkeys in a remote mountain region of China.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -171,7 +185,9 @@
 									Add to Cart
 								</a>
 								<span class="price">$78.99</span>
-								<p>Tiny perforations on the pan's surface expose your foods to the fire, adding rich, smoky character.</p>
+								<p>
+									Tiny perforations on the pan's surface expose your foods to the fire, adding rich, smoky character.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -185,7 +201,9 @@
 									Add to Cart
 								</a>
 								<span class="price">$22.99</span>
-								<p>Keen proudly boasts that the Targhee II are the 4 wheel drive of walking shoes.</p>
+								<p>
+									Keen proudly boasts that the Targhee II are the 4 wheel drive of walking shoes.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -199,7 +217,9 @@
 									Add to Cart
 								</a>
 								<span class="price">$67.99</span>
-								<p>The original Keds Champion lace-up sneakers provide the perfect blank canvas to express your unique style.</p>
+								<p>
+									The original Keds Champion lace-up sneakers provide the perfect blank canvas to express your unique style.
+								</p>
 							</div>
 						</div>
 					</li>
@@ -207,7 +227,15 @@
 			</div>
 		</section>
 
-		<button id="display_cart" class="share-box" onclick="visibleCart()" >Buy <span id="share_box_number" class="qty">0</span></button>
+		<div class="cart-wrap share-box" onclick="visibleCart()">
+			<div class="cart-wrap-inner">
+				<span class="fa-stack fa-lg">
+					<i class="fa fa-circle fa-stack-2x"></i>
+					<i class="fa fa-shopping-cart fa-stack-1x"></i>
+				</span>
+				<span id="share_box_number" class="cart-qty">0</span>
+			</div>
+		</div>
 
 		<section class="cart" id="cart_section">
 			<div class="container">
@@ -240,11 +268,11 @@
 					<div class="cart-order">
 						<div class="cart-coupon">
 							<h3>I have a coupon</h3>
-							<input type="text" placeholder="coupon">
-						<button title="Add coupon to reduce on total amount">
-							<i class="ti-plus"></i>
-							Add Coupon
-						</button>
+							<input type="text" id="coupon_code" placeholder="coupon">
+							<button id="coupon_id" title="Add coupon to reduce on total amount">
+								<i class="ti-plus"></i>
+								Add Coupon
+							</button>
 						</div>
 						<div class="cart-summary">
 							<h3>Order Summary</h3>
@@ -253,15 +281,15 @@
 									<span>Cart Subtotal</span>
 								</div>
 								<div class="col3">
-									<span id="cart_subtotal" >$74.99</span>
+									<span id="cart_subtotal" >0</span>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col9">
-									<span>Shipping</span>
+									<span>Discount</span>
 								</div>
 								<div class="col3">
-									<span>$18.49</span>
+									<span id="discount_total">0</span>
 								</div>
 							</div>
 							<div class="row order-total">
@@ -269,7 +297,7 @@
 									<span>Order Total</span>
 								</div>
 								<div class="col3">
-									<span>$93.46</span>
+									<span id="final_total">0</span>
 								</div>
 							</div>
 							<button title="Proceed to Checkout">
@@ -281,12 +309,12 @@
 				</div>
 			</div>
 		</section>
-</main>
-<div id="footer-wrap">
-<footer>
-	<p>Copyright &copy; 2016</p>
-</footer>
-</div>
-<script type="text/javascript" src="js/script.js"></script>
+	</main>
+	<div id="footer-wrap">
+		<footer>
+			<p>Copyright &copy; 2016</p>
+		</footer>
+	</div>
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

@@ -376,3 +376,64 @@ button {
 	text-transform: uppercase;
 	margin-bottom: 1.25em;
 }
+
+.share-box{
+	cursor: pointer;
+	position:fixed;
+	width:100px;
+	top:40%;
+	left:1%;
+	border:3px solid #a1a1a1;
+	background:rgb(242, 247, 252);
+	padding:10px;
+	-webkit-border-radius: 3px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.share-box:active{
+    position: fixed;
+	top:41%;
+	left:1%;
+}
+
+.cart-wrap {
+	cursor: pointer;
+	position:fixed;
+	width:100px;
+	border:3px solid rgba(24, 191, 41, 0.9);
+	background:rgba(24, 191, 41, 0.5);
+	padding:5px;
+	-webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.cart-wrap .fa-circle {
+  color: #FFF;
+}
+
+.cart-wrap-inner {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-qty {
+  background: #C5283D;
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  font-size: .8rem;
+  width: 2em;
+  height: 2em; 
+  line-height: 2em;
+  right: -33%;
+  top: -10%;
+  color: #FFF;
+  border-radius: 50%;
+}
+
+#discount_symbol {
+	color: red;
+	font-size: 50px;
+}

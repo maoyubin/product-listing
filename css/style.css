@@ -156,19 +156,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	transition: 0.2s;
 }
 
-.share-box{
-	cursor: pointer;
-	position:fixed;
-	width:130px;
-	top:50%;
-	left:1%;
-	border:3px solid #a1a1a1;
-	background:rgb(242, 247, 252);
-	padding:10px;
-	-webkit-border-radius: 3px;
-    border-radius: 3px;
-}
-
 
 /********** Footer Styles **********/
 #footer-wrap {
