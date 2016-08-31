@@ -13,8 +13,17 @@
 	        return num;
 	    },
 	    totalAmount: 0,
-	    cartTotal: 0,
-	    cartList: []
+	    cartTotal: function() {
+	    	var total = 0;
+	    	for (var key in this.cartItems) {
+				    if (!this.cartItems.hasOwnProperty(key)) 
+				    	continue;
+				    var number = this.cartItems[key];
+				    var pro = getProductByID(key);
+				    total += Number(number) * parseFloat(pro.price);
+			}
+	        return total;
+	    }
 	};
 	
 	
@@ -49,6 +58,7 @@
 	function updateUI(){
 		document.getElementById('share_box_number').innerHTML = cart.numberOfItems();
 		document.getElementById('share_box_number2').innerHTML = cart.numberOfItems();
+		document.getElementById('cart_subtotal').innerHTML = cart.cartTotal();
 	}
 
 	function getProductNumberByID(id){
@@ -139,11 +149,11 @@
 	table.onclick = function(event) {
 		if (event.target.nodeName == 'I') {
 		    var i = event.target;
+		    var id = i.getAttribute("id");
 		    var rowIndex = i.parentNode.parentNode.parentNode.rowIndex;
 		    table.deleteRow(rowIndex);
-		}else if (event.target.nodeName == 'INPUT') {
-		    var inputNode = event.target;
-		    //console.log(inputNode.value);
+		    delete cart.cartItems[id]; 
+		    updateUI();
 		}
 	};
 	
@@ -152,7 +162,10 @@
 		    var inputNode = event.target;
 		    var id = inputNode.getAttribute("objId");
 		    cart.cartItems[id]=inputNode.value;
-		    
+		    var pro = getProductByID(id);
+		    var priceTd = inputNode.parentNode.parentNode.lastElementChild;
+		    console.log(priceTd);
+		    priceTd.innerHTML='$'+(Number(inputNode.value) * parseFloat(pro.price));
 		    updateUI();
 		}
 	};
