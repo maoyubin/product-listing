@@ -22,7 +22,7 @@
 				    var pro = getProductByID(key);
 				    total += Number(number) * parseFloat(pro.price);
 			}
-	        return total;
+	        return total.toFixed(2);;
 	    }
 	};
 	
@@ -160,8 +160,8 @@
 		    cart.cartItems[id]=inputNode.value;
 		    var pro = getProductByID(id);
 		    var priceTd = inputNode.parentNode.parentNode.lastElementChild;
-		    console.log(priceTd);
-		    priceTd.innerHTML='$'+(Number(inputNode.value) * parseFloat(pro.price));
+		    var num = Number(inputNode.value) * parseFloat(pro.price)
+		    priceTd.innerHTML='$'+num.toFixed(2);;
 		    updateUI();
 		}
 	};
